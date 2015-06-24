@@ -1,0 +1,11 @@
+<div data-role="view" data-title="Employees" data-layout="main" data-model="app.home" data-show="app.home.onShow">
+
+    <ul data-role="listview" data-style="inset" data-template="homeModelTemplate" data-bind="{ source: homeModel.dataSource, events: {click: homeModel.itemClick}}" data-pull-to-refresh="false" data-endless-scroll="false">
+    </ul>
+    <script type="text/x-kendo-template" id="homeModelTemplate">
+        <div class="image-with-text">
+            <h3>#: data['LastName'] #</h3>
+            <p>#: data['Title'] #</p>
+        </div>
+    </script>
+</div>
