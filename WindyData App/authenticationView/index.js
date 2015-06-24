@@ -48,6 +48,22 @@ app.authenticationView = kendo.observable({
 
                 provider.Users.register(email, password, attrs, successHandler, init);
             },
+            actionSheet: function(){
+                var options = {
+                    'androidTheme' : window.plugins.actionsheet.ANDROID_THEMES.THEME_HOLO_LIGHT,
+                    'title': 'What do you want with this image?',
+                    'buttonLabels': ['Share via Facebook', 'Share via Twitter'],
+                    'androidEnableCancelButton' : true,
+                    'winphoneEnableCancelButton' : true,
+                    'addCancelButtonWithLabel': 'Cancel',
+                    'addDestructiveButtonWithLabel' : 'Delete it',
+                    'position': [20, 40] // for iPad pass in the [x, y] position of the popover
+                  };
+
+                  // Depending on the buttonIndex, you can now call f.i. shareViaFacebook or shareViaTwitter
+                  // of the SocialSharing plugin (http://plugins.telerik.com/plugin/socialsharing)
+                  window.plugins.actionsheet.show(options, function(index){ alert('Index: '+ index)});
+            },
             toggleView: function() {
                 mode = mode === 'signin' ? 'register' : 'signin';
                 init();
